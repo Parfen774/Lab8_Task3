@@ -8,7 +8,13 @@ namespace Progaram
         public static void Main()
         {
             string[] array = new string[] { "code", "doce", "ecod", "framer", "frame" };
-            List<string> newArray = new List<string>();
+            string[] result = CheckAnagrams(array);
+            PrettyPrint(result);
+        }
+
+        public static string[] CheckAnagrams(string[] array)
+        {
+            List<string> result = new List<string>();
             string lastWord = "";
 
             for (int i = 0; i < array.Length; i++)
@@ -17,13 +23,12 @@ namespace Progaram
 
                 if (word != lastWord)
                 {
-                    newArray.Add(array[i]);
+                    result.Add(array[i]);
                     lastWord = word;
                 }
             }
 
-            string[] result = newArray.ToArray();
-            PrettyPrint(result);
+            return result.ToArray();
         }
 
         public static string SortSymbol(string word)
